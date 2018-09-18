@@ -2,15 +2,15 @@ import inspect
 import logging
 import requests
 
-from wxwork import attribute_class
-from wxwork.attribute_class.base import BaseAttr
+from wxwork import attrs
+from wxwork.attrs.base import BaseAttr
 from wxwork.utils import camel_to_underline
 
 logger = logging.getLogger(__name__)
 
 
 def _attribute_classes():
-    return [(name, member) for name, member in inspect.getmembers(attribute_class)
+    return [(name, member) for name, member in inspect.getmembers(attrs)
             if inspect.isclass(member) and issubclass(member, BaseAttr)]
 
 
